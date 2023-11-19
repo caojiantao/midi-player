@@ -41,7 +41,9 @@ public class MidiPlayer {
             );
             MidiEvent event = new MidiEvent(message, currentTick);
             currentTick += (1.0 / tickData.tick * scale);
-            track.add(event);
+            if (tickData.pitch != 0) {
+                track.add(event);
+            }
         }
     }
 
